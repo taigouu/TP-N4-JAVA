@@ -35,6 +35,11 @@ public class Materia {
     public void setAnio(int anio) {
         this.anio = anio;
     }
+
+    @Override
+    public String toString() {
+        return " nombre de la Materia: " + nombre + " ID de la  Materia: " + idMateria + " año de cursada de la materia: " + anio;
+    }
     
     
     

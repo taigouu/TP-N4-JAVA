@@ -189,11 +189,18 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                  seleccionFinalMateria = m;
             }
         }
-        seleccionFinalAlumno.agregarMateria(seleccionFinalMateria);
-        JOptionPane.showMessageDialog(this, "Se ha inscripto al alumno " + seleccionFinalAlumno.getNombre() + " a " + seleccionFinalMateria.getNombre());
-        
-        
-        
+
+        if(!seleccionFinalAlumno.getMaterias().contains(seleccionFinalMateria)){
+            seleccionFinalAlumno.agregarMateria(seleccionFinalMateria);
+            JOptionPane.showMessageDialog(this, "Se ha inscripto al alumno " + seleccionFinalAlumno.getNombre() + " a " + seleccionFinalMateria.getNombre());
+       
+           
+    }else{
+            JOptionPane.showMessageDialog(this,"El alumno ya se encuentra inscripto a esa materia.");
+            
+        }
+        System.out.println(seleccionFinalAlumno.getNombre() + " " +seleccionFinalAlumno.getApellido() + " Inscripto en " + seleccionFinalAlumno.cantidadMaterias() + " materias: " + seleccionFinalAlumno.getMaterias());
+        System.out.println("");
     }//GEN-LAST:event_btnInscribirActionPerformed
 
     private void comboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMateriaActionPerformed

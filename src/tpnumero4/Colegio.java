@@ -25,7 +25,20 @@ public class Colegio {
         System.out.println(a1.cantidadMaterias());   
         System.out.println(a2.cantidadMaterias());
         
+        try {
+    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+            javax.swing.UIManager.setLookAndFeel(info.getClassName());
+            break;
+        }
+    }
+} catch (Exception ex) {
+    // si Nimbus no está disponible, sigue con el estilo predeterminado
+}
         
+        Ventana v1= new Ventana();
+        v1.setVisible(true);
+        v1.setLocationRelativeTo(null);
      
     }
     

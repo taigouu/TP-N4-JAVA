@@ -57,6 +57,15 @@ public class Alumno {
     public int cantidadMaterias(){
        return(materias.size()); 
    }
+
+    public HashSet<Materia> getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(HashSet<Materia> materias) {
+        this.materias = materias;
+    }
+    
     
     
     
