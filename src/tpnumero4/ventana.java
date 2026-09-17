@@ -4,11 +4,15 @@
  */
 package tpnumero4;
 
+import java.util.HashSet;
+
 /**
  *
  * @author Taigo Capo
  */
 public class ventana extends javax.swing.JFrame {
+    static HashSet<Alumno> alumnos = new HashSet<>();
+    static HashSet<Materia> materias = new HashSet<>();
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ventana.class.getName());
 
@@ -37,18 +41,20 @@ public class ventana extends javax.swing.JFrame {
         menuRegistro = new javax.swing.JMenu();
         itemRegistrarAlumno = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGap(0, 1179, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addGap(0, 654, Short.MAX_VALUE)
         );
 
         menuAlumno.setText("Alumno");
@@ -62,6 +68,7 @@ public class ventana extends javax.swing.JFrame {
         menuMateria.setText("Materia");
 
         itemAgregarMateria.setText("Agregar materia");
+        itemAgregarMateria.addActionListener(this::itemAgregarMateriaActionPerformed);
         menuMateria.add(itemAgregarMateria);
 
         jMenuBar1.add(menuMateria);
@@ -75,6 +82,12 @@ public class ventana extends javax.swing.JFrame {
         jMenuBar1.add(menuRegistro);
 
         menuSalir.setText("Salir");
+        menuSalir.addActionListener(this::menuSalirActionPerformed);
+
+        jMenuItem1.setText("Cerrar Programa");
+        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
+        menuSalir.add(jMenuItem1);
+
         jMenuBar1.add(menuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -83,11 +96,15 @@ public class ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,9 +113,9 @@ public class ventana extends javax.swing.JFrame {
     private void itemAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarAlumnoActionPerformed
         // TODO add your handling code here:
         
-        VistaAlumnos ventana= new VistaAlumnos();
-        escritorio.add(ventana);
-        ventana.setVisible(true);
+        VistaAlumnos ventanaAlumnos = new VistaAlumnos(alumnos);
+        escritorio.add(ventanaAlumnos);
+        ventanaAlumnos.setVisible(true);
         
         
         
@@ -106,7 +123,30 @@ public class ventana extends javax.swing.JFrame {
 
     private void itemRegistrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarAlumnoActionPerformed
         // TODO add your handling code here:
+        
+        
+        VistaInscripcion ventanaInscripcion = new VistaInscripcion(alumnos,materias);
+        escritorio.add(ventanaInscripcion);
+        ventanaInscripcion.setVisible(true);
+        
     }//GEN-LAST:event_itemRegistrarAlumnoActionPerformed
+
+    private void itemAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarMateriaActionPerformed
+        // TODO add your handling code here:
+        VistaMaterias ventanaMaterias = new VistaMaterias(materias);
+        escritorio.add(ventanaMaterias);
+        ventanaMaterias.setVisible(true);
+    }//GEN-LAST:event_itemAgregarMateriaActionPerformed
+
+    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menuSalirActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +179,7 @@ public class ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemAgregarMateria;
     private javax.swing.JMenuItem itemRegistrarAlumno;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuAlumno;
     private javax.swing.JMenu menuMateria;
     private javax.swing.JMenu menuRegistro;

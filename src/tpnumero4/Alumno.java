@@ -39,6 +39,11 @@ public class Alumno {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Alumno:" + "legajo=" + legajo + ", apellido=" + apellido + ", nombre=" + nombre + ", materias=" + materias;
+    }
+
 
     
     
