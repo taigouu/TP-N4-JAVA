@@ -5,6 +5,7 @@
 package tpnumero4;
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,10 +23,10 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         this.alumnos=alumnos;
         this.materias=materias;
         for(Alumno a: alumnos){
-            comboAlumno.addItem(a);
+            comboAlumno.addItem(a.getNombre() + " " + a.getApellido());
         }
         for(Materia m:materias){
-            comboMateria.addItem(m);
+            comboMateria.addItem(m.getNombre());
         }
     }
 
@@ -75,6 +76,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         salirInscripcion.setForeground(new java.awt.Color(77, 148, 255));
         salirInscripcion.setText("Salir");
         salirInscripcion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        salirInscripcion.addActionListener(this::salirInscripcionActionPerformed);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(77, 148, 255));
@@ -171,11 +173,37 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
 
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
         // TODO add your handling code here:
+        String materiaSeleccionada= (String) comboMateria.getSelectedItem();
+        String alumnoSeleccionado= (String) comboAlumno.getSelectedItem();
+        Materia seleccionFinalMateria =null;
+         Alumno seleccionFinalAlumno =null;
+        for(Alumno a: alumnos)
+        {
+            if((a.getNombre()+" " +a.getApellido()).equals(alumnoSeleccionado)){
+                 seleccionFinalAlumno=a;
+            }
+        }
+        
+        for(Materia m: materias){
+            if(m.getNombre().equals(materiaSeleccionada)){
+                 seleccionFinalMateria = m;
+            }
+        }
+        seleccionFinalAlumno.agregarMateria(seleccionFinalMateria);
+        JOptionPane.showMessageDialog(this, "Se ha inscripto al alumno " + seleccionFinalAlumno.getNombre() + " a " + seleccionFinalMateria.getNombre());
+        
+        
+        
     }//GEN-LAST:event_btnInscribirActionPerformed
 
     private void comboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboMateriaActionPerformed
+
+    private void salirInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirInscripcionActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_salirInscripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
