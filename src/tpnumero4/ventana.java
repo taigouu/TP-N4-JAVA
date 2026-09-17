@@ -2,20 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vistas;
+package tpnumero4;
 
 /**
  *
- * @author juani
+ * @author Taigo Capo
  */
-public class inicio extends javax.swing.JFrame {
+public class ventana extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(inicio.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ventana.class.getName());
 
     /**
-     * Creates new form inicio
+     * Creates new form prueba
      */
-    public inicio() {
+    public ventana() {
         initComponents();
     }
 
@@ -30,13 +30,13 @@ public class inicio extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        menuAlumno = new javax.swing.JMenu();
+        itemAgregarAlumno = new javax.swing.JMenuItem();
+        menuMateria = new javax.swing.JMenu();
+        itemAgregarMateria = new javax.swing.JMenuItem();
+        menuRegistro = new javax.swing.JMenu();
+        itemRegistrarAlumno = new javax.swing.JMenuItem();
+        menuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,36 +44,38 @@ public class inicio extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 553, Short.MAX_VALUE)
+            .addGap(0, 425, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Alumno");
+        menuAlumno.setText("Alumno");
 
-        jMenu5.setText("Alta de Alumnos");
-        jMenu1.add(jMenu5);
+        itemAgregarAlumno.setText("Agregar alumno");
+        itemAgregarAlumno.addActionListener(this::itemAgregarAlumnoActionPerformed);
+        menuAlumno.add(itemAgregarAlumno);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuAlumno);
 
-        jMenu2.setText("Materia");
+        menuMateria.setText("Materia");
 
-        jMenu6.setText("Alta de Materias");
-        jMenu2.add(jMenu6);
+        itemAgregarMateria.setText("Agregar materia");
+        menuMateria.add(itemAgregarMateria);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuMateria);
 
-        jMenu3.setText("Registro");
+        menuRegistro.setText("Registro");
 
-        jMenu7.setText("Formulario de Inscripcion");
-        jMenu3.add(jMenu7);
+        itemRegistrarAlumno.setText("Inscripción Alumnos");
+        itemRegistrarAlumno.addActionListener(this::itemRegistrarAlumnoActionPerformed);
+        menuRegistro.add(itemRegistrarAlumno);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menuRegistro);
 
-        jMenu4.setText("Salir");
-        jMenuBar1.add(jMenu4);
+        menuSalir.setText("Salir");
+        jMenuBar1.add(menuSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -81,19 +83,30 @@ public class inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itemAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarAlumnoActionPerformed
+        // TODO add your handling code here:
+        
+        VistaAlumnos ventana= new VistaAlumnos();
+        escritorio.add(ventana);
+        ventana.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_itemAgregarAlumnoActionPerformed
+
+    private void itemRegistrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemRegistrarAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,18 +130,18 @@ public class inicio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new inicio().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ventana().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenuItem itemAgregarAlumno;
+    private javax.swing.JMenuItem itemAgregarMateria;
+    private javax.swing.JMenuItem itemRegistrarAlumno;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuAlumno;
+    private javax.swing.JMenu menuMateria;
+    private javax.swing.JMenu menuRegistro;
+    private javax.swing.JMenu menuSalir;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,10 +12,18 @@ public class Colegio {
         Alumno a1 = new Alumno(1001, "López", "Martin");
         Alumno a2= new Alumno(1002, "Martinez", "Brenda");
         
+        a1.agregarMateria(m1);
+        a1.agregarMateria(m2);
+        a1.agregarMateria(m3);
         
         
+        a2.agregarMateria(m1);
+        a2.agregarMateria(m2);
+        a2.agregarMateria(m3);
+        a2.agregarMateria(m3);
         
-        
+        System.out.println(a1.cantidadMaterias());   
+        System.out.println(a2.cantidadMaterias());
         
         
      
