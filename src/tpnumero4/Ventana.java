@@ -10,16 +10,16 @@ import java.util.HashSet;
  *
  * @author Taigo Capo
  */
-public class ventana extends javax.swing.JFrame {
+public class Ventana extends javax.swing.JFrame {
     static HashSet<Alumno> alumnos = new HashSet<>();
     static HashSet<Materia> materias = new HashSet<>();
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ventana.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ventana.class.getName());
 
     /**
      * Creates new form prueba
      */
-    public ventana() {
+    public Ventana() {
         initComponents();
     }
 
@@ -148,30 +148,7 @@ public class ventana extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ventana().setVisible(true));
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
